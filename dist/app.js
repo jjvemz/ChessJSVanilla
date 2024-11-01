@@ -70,15 +70,15 @@ function startGame() {
 }
 createBoard();
 startGame();
-document.addEventListener('dragstart', (e) => {
-    const element = e.target;
-    if (element.classList.contains('piece')) {
-        element.classList.add('dragging');
-    }
-});
-document.addEventListener('dragend', (e) => {
-    const element = e.target;
-    if (element.classList.contains('piece')) {
-        element.classList.remove('dragging');
-    }
-});
+// document.addEventListener('dragstart', (e) => {
+//     const element = e.target;
+//     if (element.classList.contains('piece')) {
+//         element.classList.add('dragging');
+//     }
+// });
+// document.addEventListener('dragend', (e) => {
+//     const element = e.target;
+//     if (element.classList.contains('piece')) {
+//         element.classList.remove('dragging');
+//     }
+// });
