@@ -1,6 +1,7 @@
 // app.ts
 import { pawn, king, horse, rook, bishop, queen } from './pieces/pieces';
 
+
 type PieceColor = 'white' | 'black';
 type PieceType = 'pawn' | 'king' | 'queen' | 'bishop' | 'knight' | 'rook';
 
@@ -51,27 +52,31 @@ const startPieces: Piece[] = [
 ] as const;
 
 function createBoard(): void {
+    if (!gameBoard) {
+        console.error("El contenedor de juego no está definido.");
+        return;
+    }
+
     for (let i = 0; i < width * width; i++) {
         const square = document.createElement('div');
         square.classList.add('square');
         square.setAttribute('square-id', i.toString());
-        square.classList.add(i % 2 === 0 ? 'beige' : 'brown');
-        
+
         const row = Math.floor(i / 8);
-        if (row <= 1) {
-            square.classList.add('black');
-        }
-        if (row >= 6) {
-            square.classList.add('white');
-        }
+        const isBeige = (row % 2 === 0 && i % 2 === 0) || (row % 2 !== 0 && i % 2 !== 0);
+        square.classList.add(isBeige ? 'beige' : 'brown');
         
         gameBoard.append(square);
     }
-console.log("Piezas: ",pawn, king, horse, bishop, rook, queen);
-
+    console.log("Tablero creado.");
 }
 
 function startGame(): void {
+    if (!startPieces || startPieces.length === 0) {
+        console.error("Las piezas iniciales no están definidas.");
+        return;
+    }
+
     startPieces.forEach(piece => {
         const square = document.querySelector(`[square-id="${piece.position}"]`) as HTMLElement;
         if (square) {
@@ -82,11 +87,14 @@ function startGame(): void {
                 pieceElement.setAttribute('draggable', 'true');
                 pieceElement.setAttribute('data-type', piece.type);
             }
+            console.log(`Pieza ${piece.type} colocada en la posición ${piece.position}.`);
+        } else {
+            console.warn(`No se encontró la casilla para la posición ${piece.position}.`);
         }
     });
-console.log("Piezas: ",pawn, king, horse, bishop, rook, queen);
-    
+    console.log("Piezas iniciales colocadas.");
 }
+
 
 createBoard();
 startGame();
