@@ -4,24 +4,23 @@ body {
   align-items: center;
   justify-content: center;
   font-family: Arial, sans-serif;
+  background-color: rgb(236, 200, 91);
 }
 
 #gameboard {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  width: 400px; /* Ajusta el tamaño como desees */
-  height: 400px; /* Ajusta el tamaño como desees */
-  border: 6px solid black;
-
+  grid-template-columns: repeat(8, 1fr); 
+  width: 450px; 
+  height: 450px; 
+  border: 2px solid black;
 }
 
 .square {
-  width: 50px; /* Ajusta el tamaño de cada casilla */
-  height: 50px; /* Ajusta el tamaño de cada casilla */
   display: flex;
   align-items: center;
   justify-content: center;
-
+  aspect-ratio: 1; 
+  background-color: #0ea12e; 
 }
 
 .beige {
@@ -33,8 +32,8 @@ body {
 }
 
 .piece {
-  width: 40px;
-  height: auto;
+  width: 50%; 
+  height: auto; /* Mantiene la proporción */
 }
 
 .dragging {
