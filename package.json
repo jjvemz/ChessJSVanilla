@@ -1,0 +1,21 @@
+{
+  "name": "chesstsvanilla",
+  "version": "1.0.0",
+  "description": "Node file for a chess game with sockets and real time chat",
+  "main": "app.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc && live-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@swc-node/register": "^1.10.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "chesstsvanilla": "file:",
+    "jsdom": "^25.0.1"
+  }
+}
