@@ -16,6 +16,8 @@
     "undici": "^6.20.1"
   },
   "dependencies": {
+    "@nestjs/platform-socket.io": "^10.4.7",
+    "@nestjs/websockets": "^10.4.7",
     "chesstsvanilla": "file:",
     "jsdom": "^25.0.1"
   }
